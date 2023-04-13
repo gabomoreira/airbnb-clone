@@ -1,24 +1,25 @@
 'use client';
 
+import useRegisterModal from '@/app/hooks/useRegisterModal';
 import { useCallback, useState } from 'react';
-import {AiOutlineMenu} from 'react-icons/ai'
+import { AiOutlineMenu } from 'react-icons/ai';
 import Avatar from '../Avatar';
 import MenuItem from './MenuItem';
 
 export default function UserMenu() {
-    const [isOpen, setIsOpen] = useState(false)
+  const registerModal = useRegisterModal();
+  const [isOpen, setIsOpen] = useState(false);
 
-    const toggleOpen = useCallback(() => {
-        setIsOpen((oldValue) => !oldValue)
-    } ,[])
-
+  const toggleOpen = useCallback(() => {
+    setIsOpen((oldValue) => !oldValue);
+  }, []);
 
   return (
     <div className="relative">
-        <div className="flex flex-row items-center gap-3">
-            <div
-                onClick={() => console.log("Click in userMenu")} 
-                className="
+      <div className="flex flex-row items-center gap-3">
+        <div
+          onClick={() => console.log('Click in userMenu')}
+          className="
                     hidden
                     md:block
                     text-sm
@@ -30,13 +31,13 @@ export default function UserMenu() {
                     transition
                     cursor-pointer
                 "
-            >
-                Airbnb you home
-            </div>
+        >
+          Airbnb you home
+        </div>
 
-            <div 
-                onClick={toggleOpen}
-                className="
+        <div
+          onClick={toggleOpen}
+          className="
                     p-4
                     md:py-1
                     md:px-2
@@ -51,17 +52,18 @@ export default function UserMenu() {
                     hover:shadow-md
                     transition
                 "
-            >
-                <AiOutlineMenu size={18} />
+        >
+          <AiOutlineMenu size={18} />
 
-                <div className="hidden md:block">
-                    <Avatar />
-                </div>
-            </div>
+          <div className="hidden md:block">
+            <Avatar />
+          </div>
         </div>
+      </div>
 
-        {isOpen  && (
-            <div className="
+      {isOpen && (
+        <div
+          className="
                 absolute
                 rounded-xl
                 shadow-md
@@ -73,23 +75,16 @@ export default function UserMenu() {
                 top-12
                 text-sm
 
-            ">
-                <div className="flex flex-col cursor-pointer">
-                    <>
-                        <MenuItem 
-                            label='Login'
-                            onClick={() => {}}
-
-                        />
-                        <MenuItem 
-                            label='Sign Up'
-                            onClick={() => {}}
-
-                        />
-                    </>
-                </div>
-            </div>
-        )}
+            "
+        >
+          <div className="flex flex-col cursor-pointer">
+            <>
+              <MenuItem label="Login" onClick={() => {}} />
+              <MenuItem label="Sign Up" onClick={registerModal.onOpen} />
+            </>
+          </div>
+        </div>
+      )}
     </div>
-  )
+  );
 }
