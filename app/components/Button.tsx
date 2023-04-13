@@ -1,29 +1,29 @@
 'use client';
 
-import {IconType} from 'react-icons'
+import { IconType } from 'react-icons';
 
 interface Props {
-    label: string
-    onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
-    disabled?: boolean
-    outline?: boolean
-    small?: boolean
-    icon?: IconType 
+  label: string;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  disabled?: boolean;
+  outline?: boolean;
+  small?: boolean;
+  icon?: IconType;
 }
 
 export default function Button({
-    label,
-    onClick,
-    disabled,
-    outline,
-    small,
-    icon: Icon
+  label,
+  onClick,
+  disabled,
+  outline,
+  small,
+  icon: Icon,
 }: Props) {
   return (
     <button
-        onClick={onClick}
-        disabled={disabled}
-        className={`
+      onClick={onClick}
+      disabled={disabled}
+      className={`
             relative
             disabled:opacity-70
             disabled:cursor-not-allowed
@@ -40,17 +40,17 @@ export default function Button({
             ${small ? 'border-[1px]' : 'border-2'}
         `}
     >
-        {Icon && (
-            <Icon 
-                className='
-                    absolute
-                    left-4
-                    top-3
-                '
-                size={24} 
-            /> 
-        )}
-        {label}
+      {Icon && (
+        <Icon
+          className="
+                absolute
+                left-4
+                top-3
+            "
+          size={24}
+        />
+      )}
+      {label}
     </button>
-  )
+  );
 }
