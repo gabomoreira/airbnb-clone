@@ -73,8 +73,6 @@ export default function Modal({
                 outline-none
                 focus:outline-none
                 bg-neutral-800/70
-                 
-
             "
       >
         <div
@@ -94,13 +92,15 @@ export default function Modal({
           {/* Content */}
           <div
             className={`
-                translate
-                duration-300
-                h-full
-                ${showModal ? 'translate-y-0' : 'translate-y-full'}
-                ${showModal ? 'opacity-100' : 'opacity-0'}
+            translate
+            duration-300
+            h-screen
+            ${showModal ? 'translate-y-0' : 'translate-y-full'}
+            ${showModal ? 'opacity-100' : 'opacity-0'}
             `}
           >
+            <div className="py-3" />
+
             <div
               className="                               
                     translate
@@ -178,8 +178,12 @@ export default function Modal({
                     onClick={handleSubmit}
                   />
                 </div>
+
+                {footer}
               </div>
             </div>
+
+            <div className="py-3" />
           </div>
         </div>
       </div>

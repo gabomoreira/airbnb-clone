@@ -32,7 +32,7 @@ export default function Button({
             transition
             w-full
             ${outline ? 'bg-white' : 'bg-rose-500'}
-            ${outline ? 'border-white' : 'border-rose-500'}
+            ${outline ? 'border-black' : 'border-rose-500'}
             ${outline ? 'text-black' : 'text-white'}
             ${small ? 'p-1' : 'p-3'}
             ${small ? 'text-sm' : 'text-md'}
