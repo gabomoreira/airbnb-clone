@@ -1,5 +1,6 @@
 'use client';
 
+import { SafeUser } from '@/app/types/SafeUser';
 import { User } from '@prisma/client';
 
 import Container from '../Container';
@@ -8,7 +9,7 @@ import Search from './Search';
 import UserMenu from './UserMenu';
 
 interface Props {
-  currentUser?: User | null;
+  currentUser?: SafeUser | null;
 }
 
 export default function Navbar({ currentUser }: Props) {
