@@ -4,6 +4,7 @@ import { SafeUser } from '@/app/types/SafeUser';
 import { User } from '@prisma/client';
 
 import Container from '../Container';
+import Categories from './Categories';
 import Logo from './Logo';
 import Search from './Search';
 import UserMenu from './UserMenu';
@@ -35,6 +36,8 @@ export default function Navbar({ currentUser }: Props) {
           </div>
         </Container>
       </div>
+
+      <Categories />
     </div>
   );
 }
